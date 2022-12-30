@@ -2,7 +2,7 @@
 Для запуска SkillProfiCompany
 Выполняем:
 ```
-cd SkillProfiCompany
+cd Holiday/SkillProfiCompany
 dotnet run
 ```
 Теперь по адресу https://localhost:5001 попадаем на главную страницу
