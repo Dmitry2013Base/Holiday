@@ -1,0 +1,80 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model (Project, bool)
+
+@{
+    bool create = false;
+    Project project = Model.Item1;
+
+    if (project == null)
+    {
+        project = new Project(String.Empty, String.Empty, String.Empty);
+        create = true;
+    }
+    else
+    {
+        create = false;
+    }
+
+    <link rel="stylesheet" href="/Styles/ProjectStyle.css">
+
+    @if (Model.Item2)
+    {
+        <div class="flex item-edit">
+            <div class="flex item-file">
+                <div class="item-image">
+                    <img src="@(project.ImageProject)" id="projectImage" alt="Картинка">
+                </div>
+            </div>
+
+            <div class="description-edit">
+                <h3><b>@project.Header</b></h3>
+
+                <div class="descr">
+                    @project.Description
+                </div>
+            </div>
+        </div>
+    }
+    else if (User.IsInRole("Admin") && !Model.Item2)
+    {
+        @if (!create)
+        {
+            <h2 class="header-edit">Изменение</h2>
+        }
+        else
+        {
+            <h2 class="header-edit">Создание</h2>
+        }
+
+        <div class="flex item-edit">
+            <div class="flex item-file">
+                <div class="item-image">
+                    @if (!create)
+                    {
+                        <img src="@(project.ImageProject)" id="projectImage" alt="Картинка">
+                    }
+                </div>
+                <input type="file" id="file" name="ImageProject" accept="image/*" onchange="ChangeImage()">
+            </div>
+
+            <div class="description-edit">
+                <input type="text" id="projectHeader" class="item-header" placeholder="Заголовок" value="@project.Header" onchange="CheckValid()">
+                <textarea class="item-descr" id="projectDescription" placeholder="Описание" onchange="CheckValid()">@project.Description</textarea>
+
+                @if (!create)
+                {
+                    <button id="sub" onclick="SubmitUpdate(@Model.Item1.Id)">Изменить</button>
+                }
+                else
+                {
+                    <button id="sub" onclick="SubmitCreate()" disabled>Создать</button>
+                }
+            </div>
+        </div>
+        <script src="/Scripts/Project.js"></script>
+    }
+}
+

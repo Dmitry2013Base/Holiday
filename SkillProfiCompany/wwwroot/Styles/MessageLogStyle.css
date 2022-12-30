@@ -1,0 +1,42 @@
+select {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 18px;
+}
+
+h2 {
+    display: block;
+    text-align: center;
+}
+
+.user-message {
+    position: relative;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    padding-top: 30px;
+    font-size: 20px;
+}
+
+.user-list-message {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.message-item {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.message-item a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.message-item a:hover {
+    color: red;
+}

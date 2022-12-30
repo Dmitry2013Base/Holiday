@@ -1,0 +1,162 @@
+p {
+    margin: 0;
+}
+
+.header-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.icon-plus {
+    flex-direction:row-reverse;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header-btn {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.header-icon:hover {
+    stroke-width: 3px !important;
+}
+
+.not-visible {
+    display: none !important;
+}
+
+.visible {
+    display: inherit;
+}
+
+.service-item {
+    width: 100%;
+    padding-right: 0;
+    justify-content: center;
+}
+
+.spoiler {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spoiler-item {
+    border:1px solid black;
+    margin: 0px 0px 20px 0px;
+    border-radius: 5px;
+    width: 100%;
+    position: relative;
+    opacity: 0.7;
+}
+
+.spoiler-item:hover .help-menu-service {
+    opacity: 1;
+}
+
+.spoiler-title {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding: 5px 40px 10px 30px;
+    cursor: pointer;
+    background-color: rgb(245, 210, 140);
+    font-size: 20px;
+    border-radius: 5px;
+    min-height: 40px;
+}
+
+.spoiler-title::before,
+.spoiler-title::after {
+    content: '';
+    width: 10px;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    top: 8px;
+    transition: all 0.3s ease 0s;
+}
+
+.spoiler-title::before {
+    transform: rotate(40deg);
+    top: 10px;
+    left: 0;
+}
+
+.spoiler-title::after {
+    transform: rotate(-40deg);
+    top: 10px;
+    left: 8px;
+}
+
+.spoiler-title.active::before,
+.spoiler-title.active::after {
+    background-color: red;
+}
+
+.spoiler-title.active::before {
+    transform: rotate(-40deg);
+}
+
+.spoiler-title.active::after {
+    transform: rotate(40deg);
+}
+
+.spoiler-text,
+.spoiler-text-1 {
+    display: none;
+    padding: 10px 0px 0px 0px;
+    border-top: 1px solid black;
+    font-size: 20px;
+    padding-left: 30px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+}
+
+.spoiler-text-view {
+    display: inherit;
+}
+
+.help-menu-service {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: 7px;
+}
+
+input {
+    width: calc(100% - 8px);
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.spoiler-descr {
+    resize: none;
+    font-size: 20px;
+    width: calc(100% - 6px);
+    height: 200px;
+}
+
+.icon {
+    padding: 0;
+    width: 15px;
+    height: 15px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.icon svg:hover {
+    stroke: red;
+    stroke-width: 2px;
+}
+
+@media (max-width: 768px) {
+    .spoiler-item {
+        margin-left: 0;
+    }
+}

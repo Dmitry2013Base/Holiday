@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model (Blog, bool)
+
+@{
+    bool create = false;
+    Blog blog = Model.Item1;
+
+    if (blog == null)
+    {
+        blog = new Blog(String.Empty, String.Empty, String.Empty);
+        create = true;
+    }
+    else
+    {
+        create = false;
+    }
+
+    <link rel="stylesheet" href="/Styles/BlogStyle.css">
+
+    @if (Model.Item2)
+    {
+        <div class="flex item-edit">
+            <div class="flex item-file">
+                <div class="item-image">
+                    <img src="@blog.ImageBlog" id="blogImage" alt="Картинка">
+                </div>
+            </div>
+
+            <div class="description-edit">
+                <h3><b>@blog.Header</b></h3>
+
+                <div class="descr">
+                    @blog.Description
+                </div>
+            </div>
+        </div>
+    }
+    else if (User.IsInRole("Admin") && !Model.Item2)
+    {
+        @if (!create)
+        {
+            <h2 class="header-edit">Изменение</h2>
+        }
+        else
+        {
+            <h2 class="header-edit">Создание</h2>
+        }
+
+        <div class="flex item-edit">
+            <div class="flex item-file">
+                <div class="item-image">
+                    @if (!create)
+                    {
+                        <img src="@blog.ImageBlog" id="blogImage" alt="Картинка">
+                    }
+                </div>
+                <input type="file" id="file" name="ImageBlog" accept="image/*" onchange="ChangeImage()">
+            </div>
+
+            <div class="description-edit">
+                <input type="text" id="blogHeader" class="item-header" placeholder="Заголовок" value="@blog.Header" onchange="CheckValid()">
+                <textarea class="item-descr" id="blogDescription" placeholder="Описание" onchange="CheckValid()">@blog.Description</textarea>
+
+                @if (!create)
+                {
+                    <button id="sub" onclick="SubmitUpdate(@Model.Item1.Id)">Изменить</button>
+                }
+                else
+                {
+                    <button id="sub" onclick="SubmitCreate()" disabled>Создать</button>
+                }
+            </div>
+        </div>
+        <script src="/Scripts/Blog.js"></script>
+    }
+}

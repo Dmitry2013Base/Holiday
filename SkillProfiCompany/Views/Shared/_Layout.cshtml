@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="~/Styles//bootstrap.min.css">
+    <link rel="stylesheet" href="~/Styles//bootstrap-grid.min.css">
+    <link rel="stylesheet" href="~/Styles/BodyStyle.css">
+
+    <title>Holiday</title>
+</head>
+<body>
+    <header id="home-page" class="header ui-section">
+        <ul class="header-list flex">
+
+            @if (User.IsInRole("Admin"))
+            {
+                <li class="header-list-item">
+                    <a id="control" href="~/Roles/Index" class="header-list-item-link">Управление</a>
+                </li>
+                <li class="header-list-item">
+                    <a id="desktop" href="~/api/application/items/1900-1-1/1900-1-2" class="header-list-item-link">Рабочий стол</a>
+                </li>
+            }
+            <li class="header-list-item">
+                <a id="home" href="~/MyHome/Index" class="header-list-item-link">Главная</a>
+            </li>
+            <li class="header-list-item">
+                <a id="project" href="~/api/project/items/view" class="header-list-item-link">Проекты</a>
+            </li>
+            <li class="header-list-item">
+                <a id="service" href="~/api/service/items/view" class="header-list-item-link">Услуги</a>
+            </li>
+            <li class="header-list-item">
+                <a id="blog" href="~/api/blog/items/view" class="header-list-item-link">Блог</a>
+            </li>
+            <li class="header-list-item">
+                <a id="contact" href="~/api/contact/items/view" class="header-list-item-link">Контакты</a>
+            </li>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="header-list-item">
+                    <a href="~/Account/Logout" class="header-list-item-link">Выйти</a>
+                </li>
+                <li class="header-list-item">
+                    <label class="header-user">(@User.Identity.Name в сети)</label>
+                </li>
+
+                @if (User.IsInRole("Admin")){
+                    <li class="header-list-item">
+                        <button class="global-edit-btn">Редактировать</button>
+                    </li>
+                    <li class="header-list-item">
+                        <button class="global-save-btn none">Сохранить</button>
+                    </li>
+                }
+            }
+            else
+            {
+                <li class="header-list-item">
+                    <a href="~/Account/Login" class="header-list-item-link">Войти</a>
+                </li>
+            }
+        </ul>
+    </header>
+
+    <main>
+        <div class="background-figure position-right"></div>
+        <div class="background-figure position-left"></div>
+
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <ul class="footer-list">
+                <div class="row footer-nav">
+
+                </div>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="~/Scripts/UI.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@using System.Net.Http;
+@using Newtonsoft.Json;
+@using SkillProfiCompany.Users;*@
+
+@*<!DOCTYPE html>
+<html>
+<head>
+    <title>Берегите природу</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/Styles/style.css">
+    <script src="~/Scripts/script.js"></script>
+</head>
+
+<body style="width: 100%; margin: auto;">
+
+    <div class="header_1">
+        <div class="link_style">
+            <ul>
+                @if (User.IsInRole("Admin"))
+                {
+                    <li><a href="~/Roles/UserList" class="link__text_2">Управление</a></li>
+                    <li><a href="~/MyHome/Desktop" class="link__text_2">Рабочий стол</a></li>
+                }
+
+                <li><a href="~/MyHome/Index" class="link__text_2">Главная</a></li>
+                <li><a href="~/MyHome/Project" class="link__text_2">Проекты</a></li>
+                <li><a href="~/MyHome/Service" class="link__text_2">Услуги</a></li>
+                <li><a href="~/MyHome/Blog" class="link__text_2">Блог</a></li>
+                <li><a href="~/MyHome/Contact" class="link__text_2">Контакты</a></li>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    User user;
+                    using (var httpClient = new HttpClient())
+                    {
+                        string url = $"https://localhost:44304/api/values/GetUserId/{User.Identity.Name}";
+                        string json = httpClient.GetStringAsync(url).Result;
+                        user = JsonConvert.DeserializeObject<User>(json);
+                    }
+
+                    <li><a href="~/Account/Logout" class="link__text_2">Выйти</a></li>
+                    <li class="link__text_2">(@user.RealUserName в сети)</li>
+                }
+                else
+                {
+                    <li><a href="~/Account/Login" class="link__text_2">Войти</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        @RenderBody()
+    </div>
+
+
+
+
+
+</body>
+</html>*@

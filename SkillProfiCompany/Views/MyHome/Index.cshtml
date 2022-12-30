@@ -1,0 +1,94 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model List<CompanyImage>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<link rel="stylesheet" href="~/Styles/bootstrap-grid.min.css">
+<link rel="stylesheet" href="~/Styles/IndexStyle.css">
+
+ <section class="swiper">
+    <div class="swiper-wrapper">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <div class="swiper-slide">
+                <label class="img-id-@Model[i].Id none"></label>
+                <img src="@Model[i].Image" alt="image">
+            </div>
+        }
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</section>
+
+<section class="edit-sw none">
+    <div class="flex sw-create">
+        <p><b>Добавить</b></p>
+        <div class="sw-image create none"></div>
+        <input class="file" accept="image/*" type="file">
+        <button type="submit" class="sw-save">Сохранить</button>
+    </div>
+
+    <div class="flex sw-container">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <div class="sw-image">
+                <img src="@Model[i].Image" alt="header-view">
+                <label class="image-id" hidden>@Model[i].Id</label>
+                <button class="sw-icon" title="Удалить">
+                    <svg viewBox="0 0 32 32"><path d="M4,29a1,1,0,0,1-.71-.29,1,1,0,0,1,0-1.42l24-24a1,1,0,1,1,1.42,1.42l-24,24A1,1,0,0,1,4,29Z" /><path d="M28,29a1,1,0,0,1-.71-.29l-24-24A1,1,0,0,1,4.71,3.29l24,24a1,1,0,0,1,0,1.42A1,1,0,0,1,28,29Z" /></svg>
+                </button>
+            </div>
+        }
+    </div>
+</section>
+
+<section id="home-header" class="ui-section">
+    <div class="container">
+        <div class="row">
+            <h2 id="main" class="application-header">Оставить заявку или задать вопрос</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 application-item flex">
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <input type="text" onchange="Check()" id="name" name="userName" class="application-input" value="@User.Identity.Name" readonly placeholder="Имя">         
+                }
+                else
+                {
+                    <input type="text" onchange="Check()" id="name" name="userName" class="application-input" value="@User.Identity.Name" readonly placeholder="Имя">         
+                }
+
+                <input type="text" name="userEmail" onchange="Check()" id="email" class="application-input" placeholder="E-mail">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 application-item flex">
+                <textarea class="application-input-description" onchange="Check()" id="message" name="userMessage" placeholder="Сообщение"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 application-btn flex">
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <button id="button-add-aplication" class="application-button" onclick="CreateApplication()" disabled>Отправить</button>
+                }
+                else
+                {
+                    <button class="application-button" disabled>Авторизуйтесь</button>
+                }
+               
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="~/Scripts/Index.js"></script>

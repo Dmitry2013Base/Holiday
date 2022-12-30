@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Styles/Style.css">
+    <title>Holiday</title>
+</head>
+<body>
+    <main class="flex login-container">
+        <section class="login-form">
+            <h1 class="login-header">Регистрация</h1>
+            <form action="~/Account/Registration" class="login-panel" method="post">
+                <input class="login-input" type="text" name="LoginProp" placeholder="Логин" required minlength="5" maxlength="30">
+                <input class="login-input" type="email" name="Email" placeholder="E-mail" required>
+                <input onchange="checkValid()" class="login-input" name="Password" type="password" placeholder="Пароль" required minlength="5" maxlength="20">
+                <input onchange="checkValid()" class="login-input" name="ConfirmPassword" type="password" placeholder="Повторите пароль" required minlength="5" maxlength="20">
+                
+                <label class="login-error">Ошибка</label>
+                <div class="flex login">
+                    <a class="login-form-link" href="~/Account/Login">Войти</a>
+                    <input class="login-btn" type="submit" value="Зарегистрироваться">
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="~/Scripts/Registration.js"></script>
+</body>
+</html>

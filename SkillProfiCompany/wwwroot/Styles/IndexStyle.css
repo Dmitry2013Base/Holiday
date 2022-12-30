@@ -1,0 +1,138 @@
+.swiper {
+    width: 100%;
+    height: 720px;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.application-header {
+    margin: 0;
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+}
+
+.application-item {
+    padding: 0;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.application-input {
+    font-size: 20px;
+}
+
+.application-input-description {
+    padding: 0;
+    width: 100%;
+    height: 300px;
+    font-size: 20px;
+    padding: 10px;
+    resize: none;
+}
+
+.application-btn {
+    padding: 0;
+    justify-content: end;
+}
+
+.application-button {
+    padding: 5px 10px;
+    font-size: 18px;
+}
+
+.sw-container {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sw-image {
+    position: relative;
+    padding: 10px;
+    width: 300px;
+    height: 200px;
+}
+
+.sw-image img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.sw-icon {
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.sw-icon svg {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.sw-icon svg:hover {
+    fill: red;
+    stroke: red;
+}
+
+.sw-image:hover svg {
+    transition: opacity 0.1s linear;
+    opacity: 1;
+}
+
+.sw-create {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.sw-create p {
+    font-size: 24px;
+    margin: 10px 15px;
+}
+
+.sw-create button {
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.none {
+    display: none;
+}
+
+@media (max-width: 576px) {
+
+    .application-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .application-input {
+        margin-bottom: 20px;
+        width: calc(90% - 8px);
+    }
+
+    .application-input-description {
+        width: 90%;
+    }
+
+    .application-btn {
+        justify-content: center;
+    }
+}

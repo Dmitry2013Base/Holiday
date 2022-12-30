@@ -1,0 +1,50 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model List<Project>
+
+<link rel="stylesheet" href="/Styles/ProjectStyle.css">
+<link rel="stylesheet" href="/Styles/ProjectImageStyle.css">
+
+<div id="project-page" class="flex icon-plus ui-section">
+    @if (User.IsInRole("Admin")){
+        <button class="help icon header-btn" title="Создать" onclick="RedirectEdit(0)">
+            <svg class="header-icon" viewBox="0 0 32 32"><path d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" /></svg>
+        </button>
+    }
+    <h2 id="project-header">Проекты</h2>
+</div>
+
+<div class="container-fluid text-center">
+    <div class="row">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            Project project = Model[i];
+
+            <div class="col-lg-4 col-md-6 col-sm-12 card-item">
+                <div class="card-list flex image-list-@i">
+                    <div class="item-description" onclick="RedirectEditView(@Model[i].Id)">
+
+                        <div class="card-item-header">
+                            <b>@project.Header</b>
+                        </div>
+                    </div>
+                    @if (User.IsInRole("Admin")){
+                        <div class="help-menu-project help">
+                            <button class="icon" title="Редактировать" onclick="RedirectEdit(@project.Id)">
+                                <svg viewBox="0 0 128 128"><path d="M123.315,16L112.003,4.686C108.878,1.563,104.78,0,100.687,0s-8.188,1.563-11.313,4.686l-68.69,68.689  C17.563,76.5,8.004,88.586,8,92.68L0,128l35.313-8c0,0,16.188-9.563,19.313-12.688l68.69-68.687  C129.562,32.375,129.562,22.243,123.315,16z M10.605,117.398l5.195-22.953c0.074-0.328,0.129-0.664,0.16-0.992  c0.016-0.047,0.059-0.117,0.078-0.164l18.09,18.094c-0.605,0.367-1.215,0.734-1.813,1.094L10.605,117.398z M48.984,101.641  c-0.906,0.859-4.039,2.977-7.867,5.414L20.391,86.328c2.125-2.914,4.492-5.844,5.949-7.297l51.722-51.718l22.625,22.625  L48.984,101.641z M117.659,32.969l-11.316,11.313L83.718,21.657l11.316-11.313C96.542,8.829,98.55,8,100.687,8  s4.148,0.836,5.66,2.344l11.313,11.313c1.512,1.508,2.34,3.516,2.34,5.656C119.999,29.446,119.167,31.461,117.659,32.969z" fill="black" /></svg>
+                            </button>
+                            <button class="icon" title="Удалить" onclick="DeleteProject(@project.Id)">
+                                <svg viewBox="0 0 32 32"><path d="M4,29a1,1,0,0,1-.71-.29,1,1,0,0,1,0-1.42l24-24a1,1,0,1,1,1.42,1.42l-24,24A1,1,0,0,1,4,29Z" /><path d="M28,29a1,1,0,0,1-.71-.29l-24-24A1,1,0,0,1,4.71,3.29l24,24a1,1,0,0,1,0,1.42A1,1,0,0,1,28,29Z" /></svg>
+                            </button>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script src="/Scripts/Project.js"></script>

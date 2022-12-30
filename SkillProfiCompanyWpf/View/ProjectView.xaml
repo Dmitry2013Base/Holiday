@@ -1,0 +1,92 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SkillProfiCompanyWpf.View"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:conv="clr-namespace:SkillProfiCompanyWpf" 
+        xmlns:viewmodels="clr-namespace:SkillProfiCompanyWpf.ViewModels" 
+        x:Name="WindowProjectView" 
+        d:DataContext="{d:DesignInstance Type=viewmodels:ViewModel}" 
+        x:Class="SkillProfiCompanyWpf.View.ProjectView"
+        Title="{Binding ClientView.ProjectTitle}" 
+        Height="600" 
+        Width="900" 
+        MinHeight="600" 
+        MinWidth="900" 
+        Closing="Window_Closing">
+
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.Resources>
+            <conv:Converter x:Key="Converter"/>
+        </Grid.Resources>
+
+        <StackPanel Grid.Column="0" Margin="10,10,10,10">
+            <TextBox x:Name="ProjectHeader" 
+                     Margin="0,10,0,0" 
+                     TextWrapping="Wrap" 
+                     Text="{Binding ClientView.ProjectHeader}" 
+                     VerticalAlignment="Top" 
+                     Cursor="Arrow" 
+                     FontWeight="Bold" 
+                     FontSize="16"
+                     materialDesign:HintAssist.Hint="Заголовок"
+                     IsReadOnly="{Binding ClientView.ProjectIsReadOnly}"/>
+
+            <StackPanel Orientation="Horizontal" Visibility="{Binding ClientView.ProjectVisibility}">
+                <Button Content="Выбрать файл" 
+                        Margin="0,10,0,0" 
+                        Command="{Binding AddFileProject}" 
+                        Cursor="Hand"/>
+                <Label Content="Выбран файл:" 
+                       FontSize="14" 
+                       Height="32" 
+                       Padding="10,5,10,0"
+                       VerticalAlignment="Bottom"/>
+                <Label Content="{Binding ClientView.ProjectFileName}" 
+                       FontSize="14" 
+                       Height="32" 
+                       VerticalAlignment="Bottom"/>
+            </StackPanel>
+
+            <Image x:Name="ProjectImage" 
+                   Margin="0,10,0,0" 
+                   Source="{Binding ClientView.ProjectImage}"
+                   HorizontalAlignment="Left"
+                   MinWidth="430" 
+                   MinHeight="260" 
+                   VerticalAlignment="Top" 
+                   Grid.ColumnSpan="2"/>
+            <Label x:Name="Error" 
+                   Content="{Binding ClientView.ProjectError}" 
+                   FontSize="14" 
+                   Foreground="red"
+                   Margin="0,10,0,0"/>
+            <Label x:Name="IdProject" 
+                   Content="{Binding ClientView.ProjectId}"
+                   HorizontalAlignment="Left" 
+                   Margin="10,238,0,0" 
+                   VerticalAlignment="Top" 
+                   Width="102" 
+                   Visibility="Hidden"/>
+        </StackPanel>
+
+        <TextBox x:Name="ProjectDescription" 
+                 TextWrapping="Wrap" 
+                 Text="{Binding ClientView.ProjectDescription}" 
+                 FontSize="14" 
+                 Grid.Column="2"
+                 materialDesign:HintAssist.Hint="Описание" 
+                 Margin="10,10,10,10"
+                 IsReadOnly="{Binding ClientView.ProjectIsReadOnly}" 
+                 Cursor="Arrow">
+        </TextBox>
+    </Grid>
+</Window>

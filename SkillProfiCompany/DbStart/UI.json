@@ -1,0 +1,116 @@
+[
+  {
+    "Id": 1,
+    "Key": "desktop",
+    "Value": "Рабочий  стол",
+    "Page": "home-page"
+  },
+  {
+    "Id": 2,
+    "Key": "home",
+    "Value": "Главная",
+    "Page": "home-page"
+  },
+  {
+    "Id": 3,
+    "Key": "project",
+    "Value": "Проекты",
+    "Page": "home-page"
+  },
+  {
+    "Id": 4,
+    "Key": "service",
+    "Value": "Услуги",
+    "Page": "home-page"
+  },
+  {
+    "Id": 5,
+    "Key": "blog",
+    "Value": "Блог",
+    "Page": "home-page"
+  },
+  {
+    "Id": 6,
+    "Key": "contact",
+    "Value": "Контакты",
+    "Page": "home-page"
+  },
+  {
+    "Id": 7,
+    "Key": "button-add-aplication",
+    "Value": "Отправить",
+    "Page": "home-header"
+  },
+  {
+    "Id": 8,
+    "Key": "main",
+    "Value": "Оставить заявку или задать вопрос",
+    "Page": "home-header"
+  },
+  {
+    "Id": 9,
+    "Key": "control",
+    "Value": "Управление",
+    "Page": "home-page"
+  },
+  {
+    "Id": 10,
+    "Key": "project-header",
+    "Value": "Проекты",
+    "Page": "project-page"
+  },
+  {
+    "Id": 11,
+    "Key": "service-header",
+    "Value": "Услуги",
+    "Page": "service-page"
+  },
+  {
+    "Id": 12,
+    "Key": "blog-header",
+    "Value": "Блог",
+    "Page": "blog-page"
+  },
+  {
+    "Id": 13,
+    "Key": "desktop-table-header",
+    "Value": "Заявки пользователей",
+    "Page": "desktop-page"
+  },
+  {
+    "Id": 14,
+    "Key": "control-list-user",
+    "Value": "Список пользователей",
+    "Page": "control-page"
+  },
+  {
+    "Id": 15,
+    "Key": "control-create-role",
+    "Value": "Создать роль",
+    "Page": "control-page"
+  },
+  {
+    "Id": 16,
+    "Key": "contact-address",
+    "Value": "Адрес",
+    "Page": "contact-page"
+  },
+  {
+    "Id": 17,
+    "Key": "contact-tel",
+    "Value": "Телефоны",
+    "Page": "contact-page"
+  },
+  {
+    "Id": 18,
+    "Key": "contact-email",
+    "Value": "E-Mail",
+    "Page": "contact-page"
+  },
+  {
+    "Id": 19,
+    "Key": "contact-social",
+    "Value": "Социальные сети",
+    "Page": "contact-page"
+  }
+]

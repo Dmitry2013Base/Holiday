@@ -1,0 +1,1171 @@
+﻿<Window x:Class="SkillProfiCompanyWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SkillProfiCompanyWpf"
+        xmlns:conv="clr-namespace:SkillProfiCompanyWpf" 
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:viewmodels="clr-namespace:SkillProfiCompanyWpf.ViewModels"
+        d:DataContext="{d:DesignInstance Type=viewmodels:ViewModel}"
+        Title="Holiday" 
+        WindowState="Maximized" Height="1080" Width="1920">
+
+    <!--<Window.DataContext>
+        <viewmodels:ViewModel/>
+    </Window.DataContext>-->
+
+    <Grid x:Name="gridForOtv" KeyDown="gridForOtv_KeyDown">
+        <TabControl x:Name="TabControlView" 
+                    HorizontalAlignment="Stretch" 
+                    Margin="27,10,10,10" 
+                    Width="auto" 
+                    MouseDown="TabControl_MouseDown">
+
+            <TabItem Header="{Binding ClientView.ApplicationDesktopHeader}" 
+                     Width="auto" 
+                     Height="25" 
+                     Padding="0,0,0,0"
+                     Visibility="{Binding ClientView.ApplicationVisibilityDesktop}">
+
+                <StackPanel Width="500px"
+                            Height="800px">
+
+                    <StackPanel.Resources>
+                        <conv:Converter x:Key="Convertor"/>
+                    </StackPanel.Resources>
+
+                    <StackPanel x:Name="ControlView"
+                                Margin="10,0,0,75" 
+                                VerticalAlignment="Bottom" 
+                                HorizontalAlignment="Center" 
+                                Width="440">
+                        <Label Content="Управление" 
+                               FontSize="20"
+                               HorizontalAlignment="Center" 
+                               FontWeight="Bold">
+                        </Label>
+                        <TextBox x:Name="Desktop" 
+                                 TextWrapping="Wrap"
+                                 Text="{Binding UIElements[desktop]}"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 materialDesign:HintAssist.Hint="Страница 1"
+                                 Width="440"
+                                 FontSize="16"
+                                 Margin="0,0,0,0"/>
+                        <TextBox x:Name="HomePage" 
+                                 TextWrapping="Wrap"
+                                 Text="{Binding UIElements[home]}" 
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 materialDesign:HintAssist.Hint="Страница 2"
+                                 Width="440"
+                                 FontSize="16"
+                                 Margin="0,10,0,0" Cursor="Arrow"/>
+
+                        <StackPanel x:Name="Page2" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <TextBox x:Name="HeaderHomePage"
+                                         TextWrapping="Wrap"
+                                         Text="{Binding UIElements[main]}"
+                                         materialDesign:HintAssist.Hint="Заголовок"
+                                         Width="350"
+                                         FontSize="16"
+                                         Margin="0,10,0,0" Cursor="Arrow"/>
+                            <TextBox x:Name="ButtonAddAplication" 
+                                         TextWrapping="Wrap"
+                                         Text="{Binding UIElements[button-add-aplication]}"
+                                         materialDesign:HintAssist.Hint="Кнопка"
+                                         Width="350"
+                                         FontSize="16"
+                                         Margin="0,10,0,0"/>
+                        </StackPanel>
+
+                        <TextBox x:Name="Project" 
+                                 TextWrapping="Wrap"
+                                 Text="{Binding UIElements[project]}" 
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 materialDesign:HintAssist.Hint="Страница 3"
+                                 Width="440"
+                                 FontSize="16"
+                                 Margin="0,10,0,0"/>
+                        <TextBox x:Name="Service"
+                                 TextWrapping="Wrap"
+                                 Text="{Binding UIElements[service]}" 
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 materialDesign:HintAssist.Hint="Страница 4"
+                                 Width="440"
+                                 FontSize="16"
+                                 Margin="0,10,0,0"/>
+                        <TextBox x:Name="Blog"
+                                 TextWrapping="Wrap"
+                                 Text="{Binding UIElements[blog]}" 
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 materialDesign:HintAssist.Hint="Страница 5"
+                                 Width="440"
+                                 FontSize="16"
+                                 Margin="0,10,0,0"
+                                 Cursor="Arrow"/>
+                        <TextBox x:Name="Contact"
+                                 TextWrapping="Wrap"
+                                 Text="{Binding UIElements[contact]}" 
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 materialDesign:HintAssist.Hint="Страница 6"
+                                 Width="440"
+                                 FontSize="16"
+                                 Margin="0,10,0,0" 
+                                 Cursor="Arrow"/>
+
+                        <StackPanel x:Name="Page6" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <TextBox x:Name="ContactAddress"
+                                     TextWrapping="Wrap"
+                                     Text="{Binding UIElements[contact-address]}"
+                                     materialDesign:HintAssist.Hint="Адрес"
+                                     Width="350"
+                                     FontSize="16"
+                                     Margin="0,10,0,0" Cursor="Arrow"/>
+                            <TextBox x:Name="ContactTel" 
+                                         TextWrapping="Wrap"
+                                         Text="{Binding UIElements[contact-tel]}"
+                                         materialDesign:HintAssist.Hint="Телефоны"
+                                         Width="350"
+                                         FontSize="16"
+                                         Margin="0,10,0,0"/>
+                            <TextBox x:Name="ContactEmail" 
+                                         TextWrapping="Wrap"
+                                         Text="{Binding UIElements[contact-email]}"
+                                         materialDesign:HintAssist.Hint="Email"
+                                         Width="350"
+                                         FontSize="16"
+                                         Margin="0,10,0,0"/>
+                        </StackPanel>
+
+                        <Label x:Name="ErrorControl" 
+                               Content="{Binding ClientView.LoginControlError}"
+                               FontSize="12"
+                               Foreground="Red"/>
+                        <Button x:Name="SaveControl"
+                                Content="Сохранить"
+                                HorizontalAlignment="Right" 
+                                Margin="0,10,0,0" 
+                                Style="{StaticResource MaterialDesignFlatButton}"
+                                Command="{Binding ControlSave}"
+                                Cursor="Hand">
+                            <Button.CommandParameter>
+                                <MultiBinding Converter="{StaticResource Convertor}">
+                                    <Binding ElementName="Desktop" Path="Text"/>
+                                    <Binding ElementName="HomePage" Path="Text"/>
+                                    <Binding ElementName="Project" Path="Text"/>
+                                    <Binding ElementName="Service" Path="Text"/>
+                                    <Binding ElementName="Blog" Path="Text"/>
+                                    <Binding ElementName="Contact" Path="Text"/>
+                                    <Binding ElementName="ButtonAddAplication" Path="Text"/>
+                                    <Binding ElementName="HeaderHomePage" Path="Text"/>
+                                    <Binding ElementName="ContactAddress" Path="Text"/>
+                                    <Binding ElementName="ContactTel" Path="Text"/>
+                                    <Binding ElementName="ContactEmail" Path="Text"/>
+                                </MultiBinding>
+                            </Button.CommandParameter>
+                        </Button>
+                    </StackPanel>
+
+
+
+
+                </StackPanel>
+
+
+
+            </TabItem>
+            <TabItem x:Name="DesktopView" 
+                     Header="{Binding UIElements[desktop]}" 
+                     Width="auto" 
+                     Height="25" 
+                     Padding="0,0,0,0"
+                     Visibility="{Binding ClientView.ApplicationVisibilityDesktop}">
+                <Grid Background="#FFE5E5E5" Margin="0,10,0,-10">
+                    <Grid.Resources>
+                        <conv:Converter x:Key="Convertor"/>
+                    </Grid.Resources>
+
+                    <DataGrid x:Name="ApplicationTable" 
+                              Margin="200,10,0,10" 
+                              MinColumnWidth="0" 
+                              AutoGenerateColumns="False" 
+                              Foreground="Black" 
+                              HorizontalAlignment="Left" 
+                              Width="1683" 
+                              ItemsSource="{Binding Path=TempClients, Mode=OneWay}"
+                              IsReadOnly="True">
+                        <DataGrid.ContextMenu>
+                            <ContextMenu Name="contextMenu">
+                                <MenuItem x:Name="OpenApplication" 
+                                          Header="Открыть"
+                                          Command="{Binding OpenUserApplication}"
+                                          CommandParameter="{Binding SelectedValue, ElementName=ApplicationTable}" 
+                                          Click="OpenApplication_Click">
+                                </MenuItem>
+
+                                <MenuItem x:Name="FilterByName" 
+                                          Header="Показать все завки этого абонента"
+                                          Command="{Binding FilterApplicationByName}"
+                                          CommandParameter="{Binding SelectedValue, ElementName=ApplicationTable}">
+                                </MenuItem>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Номер заявки" Width="Auto" Binding="{Binding Number}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Дата" Width="Auto" Binding="{Binding Date, StringFormat=\{0:dd.MM.yyyy HH:mm:ss\}}"/>
+                            <DataGridTextColumn Header="Имя" Width="Auto" Binding="{Binding UserFullName}"/>
+                            <DataGridTextColumn Header="Текст заявки" Width="Auto" Binding="{Binding UserMessage}" MaxWidth="1050">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap"></Setter>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Контакты" Width="Auto" Binding="{Binding UserEmail}"/>
+                            <DataGridTextColumn Header="Статус заявки" Width="Auto" Binding="{Binding ApplicationStatus.StatusName}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0">
+                        <Label Content="{Binding ClientView.ApplicationAllApplication}" FontSize="16" Padding="5,5,0,0"></Label>
+                        <Label Content="{Binding ClientView.ApplicationViewApplication}" FontSize="16" Padding="5,5,0,0"></Label>
+                        <Button x:Name="Today" 
+                                Content="Сегодня"
+                                FontSize="14"
+                                Margin="0,10,0,0"
+                                Command="{Binding FilterApplicationByDate}"
+                                CommandParameter="{Binding Name, ElementName=Today}" 
+                                Cursor="Hand"/>
+                        <Button x:Name="Yesterday" 
+                                Content="Вчера"
+                                FontSize="14"
+                                Margin="0,10,0,0"
+                                Command="{Binding FilterApplicationByDate}"
+                                CommandParameter="{Binding Name, ElementName=Yesterday}"/>
+                        <Button x:Name="Week" 
+                                Content="Неделя" 
+                                FontSize="14"
+                                Margin="0,10,0,0"
+                                Command="{Binding FilterApplicationByDate}"
+                                CommandParameter="{Binding Name, ElementName=Week}"/>
+                        <Button x:Name="Month" 
+                                Content="Месяц"
+                                FontSize="14" 
+                                Margin="0,10,0,0"
+                                Command="{Binding FilterApplicationByDate}"
+                                CommandParameter="{Binding Name, ElementName=Month}"/>
+                        <DatePicker x:Name="DateStart"
+                                    Margin="0,10,0,0"
+                                    materialDesign:HintAssist.Hint="Период с"
+                                    Style="{StaticResource MaterialDesignDatePicker}" 
+                                    FontSize="14"/>
+                        <DatePicker x:Name="DateFinish"
+                                    Margin="0,10,0,0"
+                                    materialDesign:HintAssist.Hint="По"
+                                    Style="{StaticResource MaterialDesignDatePicker}" 
+                                    FontSize="14"/>
+                        <Button x:Name="FilterForDate" 
+                                Content="Показать"
+                                FontSize="14"
+                                Margin="0,10,0,0"
+                                Cursor="Hand"
+                                Command="{Binding FilterApplicationByDate_2}">
+                            <Button.CommandParameter>
+                                <MultiBinding Converter="{StaticResource Convertor}">
+                                    <Binding ElementName="DateStart" Path="SelectedDate"/>
+                                    <Binding ElementName="DateFinish" Path="SelectedDate"/>
+                                </MultiBinding>
+                            </Button.CommandParameter>
+                        </Button>
+                        <Button x:Name="FilterReset" 
+                                Content="Показать все заявки" 
+                                FontSize="14" 
+                                Margin="0,10,0,0"
+                                Command="{Binding FilterApplicationByDate}"
+                                CommandParameter="{Binding Name, ElementName=FilterReset}"/>
+                    </StackPanel>
+
+                    <StackPanel x:Name="GreyBackground" 
+                                Margin="0,0,0,0"
+                                Background="Black"
+                                Opacity="0.75"
+                                Visibility="Hidden"
+                                MouseLeftButtonDown="GreyBackground_MouseLeftButtonDown">
+                    </StackPanel>
+
+                    <Border x:Name="AppClienView" 
+                            Width="0" 
+                            Height="0" 
+                            CornerRadius="10" 
+                            BorderBrush="Black" 
+                            BorderThickness="5" 
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                        <StackPanel Width="1200" 
+                                    Height="800" 
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center" 
+                                    Background="LightGray">
+
+                            <Button x:Name="ButtonClose" 
+                                    Margin="0,5,5,0"
+                                    HorizontalAlignment="Right"
+                                    Padding="0,0,0,0"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    Cursor="Hand" 
+                                    Click="ButtonClose_Click"
+                                    Command="{Binding UpdateStatusCommand}">
+                                <Button.CommandParameter>
+                                    <MultiBinding Converter="{StaticResource Convertor}">
+                                        <Binding ElementName="SelectStatus" Path="SelectedItem"/>
+                                        <Binding ElementName="ApplicationId" Path="Content"/>
+                                    </MultiBinding>
+                                </Button.CommandParameter>
+                                <materialDesign:PackIcon Kind="Close" 
+                                                         Width="32" 
+                                                         Height="32" 
+                                                         Foreground="Black">
+                                </materialDesign:PackIcon>
+                            </Button>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="10,0,10,0" 
+                                           FontSize="20" 
+                                           FontWeight="Bold" 
+                                           Width="560">
+                                    <Run Text="{Binding ClientView.ApplicationUserFullName}"></Run>
+                                    <Run Text=" (Заявка №"></Run>
+                                    <Run Text="{Binding ClientView.ApplicationId}"></Run>
+                                    <Run Text=")"></Run>
+                                </TextBlock>
+
+                                <ComboBox x:Name="SelectStatus" 
+                                          ItemsSource="{Binding StatusClient}" 
+                                          FontSize="20"
+                                          Margin="10,0,10,0"
+                                          Width="560">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding StatusName}"></TextBlock>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                            </StackPanel>
+
+                            <Label x:Name="ApplicationId" 
+                                   Content="{Binding ClientView.ApplicationId}" 
+                                   Visibility="Hidden">
+                            </Label>
+                            <Label Content="Текст заявки:"
+                                   FontSize="20"
+                                   Margin="10,10,0,0" 
+                                   FontWeight="Bold">
+                            </Label>
+                            <TextBlock Text="{Binding ClientView.ApplicationUserMessage}"
+                                       FontSize="20"
+                                       Margin="10,10,10,0" 
+                                       Height="auto"
+                                       MaxHeight="230"
+                                       TextWrapping="Wrap">
+                            </TextBlock>
+                            <Label Content="Другие заявки созданные этим абонентом:" 
+                                   FontSize="20"
+                                   Margin="10,10,10,0"
+                                   FontWeight="Bold">
+                            </Label>
+
+                            <StackPanel Margin="10,10,10,0" Height="365">
+                                <ListBox x:Name="ApplicationList" 
+                                         ItemsSource="{Binding TempClientsUserName}"
+                                         HorizontalAlignment="Center"
+                                         Width="1180"
+                                         Height="300">
+                                    <ListBox.ContextMenu>
+                                        <ContextMenu Name="MenuForOpenApplication">
+                                            <MenuItem x:Name="MoveNextApplication" 
+                                                      Header="Перейти к заявке -->"
+                                                      Command="{Binding MoveNextApplication}"
+                                                      CommandParameter="{Binding ElementName=ApplicationList, Path=SelectedItem}" 
+                                                      Click="MoveNextApplication_Click">
+                                            </MenuItem>
+                                        </ContextMenu>
+                                    </ListBox.ContextMenu>
+
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <TextBlock FontSize="20" TextWrapping="Wrap">
+                                                    <Run Text="("></Run>
+                                                    <Run Text="{Binding Date, StringFormat=\{0:dd.MM.yyyy HH:mm:ss\}}"></Run>
+                                                    <Run Text=") - "></Run>
+                                                    <Run Text="{Binding UserMessage}"></Run>
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="HomePageView" 
+                     Header="{Binding UIElements[home]}" 
+                     Width="auto" 
+                     Height="25" 
+                     Padding="0,0,0,0">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.Resources>
+                        <conv:Converter x:Key="Convertor"/>
+                    </Grid.Resources>
+
+                    <StackPanel Width="auto" 
+                                Height="auto" 
+                                VerticalAlignment="Top"
+                                Margin="10,10,0,0"
+                                HorizontalAlignment="Left">
+                        <Label x:Name="Question" 
+                               Content="{Binding UIElements[main]}"
+                               FontSize="35"
+                               FontWeight="Bold" 
+                               HorizontalAlignment="Center"
+                               Margin="0,10,0,0"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="UserName"
+                                     HorizontalAlignment="Left"
+                                     Margin="10,10,0,0"
+                                     TextWrapping="Wrap"
+                                     VerticalAlignment="Top"
+                                     Width="500"
+                                     materialDesign:HintAssist.Hint="Имя"
+                                     Text="{Binding ClientView.ApplicationUserName}"
+                                     Cursor="Arrow"
+                                     FontSize="20"
+                                     IsReadOnly="True"/>
+                            <TextBox x:Name="UserEmail"
+                                     HorizontalAlignment="Left"
+                                     Margin="10,10,10,0"
+                                     TextWrapping="Wrap"
+                                     VerticalAlignment="Top"
+                                     Width="500"
+                                     materialDesign:HintAssist.Hint="Email" 
+                                     Text="{Binding ClientView.ApplicationEmailText}" 
+                                     Cursor="Arrow"
+                                     FontSize="20"
+                                     IsReadOnly="{Binding ClientView.ApplicationEmailRead}"/>
+                        </StackPanel>
+
+                        <TextBox x:Name="UserMessage"
+                                 HorizontalAlignment="Stretch"
+                                 Margin="10,10,10,0"
+                                 TextWrapping="Wrap"
+                                 Width="auto"
+                                 materialDesign:HintAssist.Hint="Сообщение"
+                                 Cursor="Arrow"
+                                 Text="{Binding ClientView.ApplicationMessageText}"
+                                 FontSize="20" 
+                                 Height="300"
+                                 IsReadOnly="{Binding ClientView.ApplicationMessageRead}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="Send"
+                                    Content="{Binding UIElements[button-add-aplication]}"
+                                    HorizontalAlignment="Left"
+                                    Margin="10,10,0,10"
+                                    VerticalAlignment="Top"
+                                    Cursor="Hand"
+                                    Command="{Binding AddApplication}"
+                                    ToolTip="{Binding ClientView.ButtonAddApplicationTooltip}">
+                                <Button.CommandParameter>
+                                    <MultiBinding Converter="{StaticResource Convertor}">
+                                        <Binding ElementName="UserName" Path="Text"/>
+                                        <Binding ElementName="UserEmail" Path="Text"/>
+                                        <Binding ElementName="UserMessage" Path="Text"/>
+                                    </MultiBinding>
+                                </Button.CommandParameter>
+                            </Button>
+                            <Label Content="{Binding ClientView.ApplicationError}" 
+                                   HorizontalAlignment="Stretch"
+                                   Margin="10,13,10,0" 
+                                   Width="auto" 
+                                   FontSize="14" 
+                                   Foreground="red"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="{Binding UIElements[project]}"
+                     Width="auto"
+                     Height="25"
+                     Padding="0,0,0,0">
+                <Grid Background="#FFE5E5E5">
+
+                    <Grid.Resources>
+                        <conv:Converter x:Key="Convertor"/>
+                    </Grid.Resources>
+
+                    <ListBox x:Name="ListProject" 
+                             ItemsSource="{Binding ProjectClients}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Image HorizontalAlignment="Left" 
+                                           Height="235" 
+                                           Margin="10,50,0,0" 
+                                           VerticalAlignment="Top"
+                                           Width="400" 
+                                           Source="{Binding Image}"/>
+                                    <TextBlock HorizontalAlignment="Left" 
+                                               Margin="10,10,0,0" 
+                                               TextWrapping="Wrap" 
+                                               Text="{Binding Header}" 
+                                               VerticalAlignment="Top" 
+                                               FontSize="20" 
+                                               FontWeight="Bold"
+                                               Width="400" 
+                                               Height="75"
+                                               TextAlignment="Center"/>
+                                    <StackPanel.InputBindings>
+                                        <MouseBinding MouseAction="LeftDoubleClick"
+                                                      Command="{Binding DataContext.ViewProject, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBox}}, Mode=OneWay}"
+                                                      CommandParameter="{Binding ElementName=ListProject, Path=SelectedItem}">
+                                        </MouseBinding>
+                                    </StackPanel.InputBindings>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+
+                        <ListBox.ContextMenu>
+                            <ContextMenu Name="ContextForListProject" Visibility="{Binding ClientView.ProjectVisibilityContextMenu}">
+                                <MenuItem Header="Добавить" 
+                                          Command="{Binding AddProject}">
+                                </MenuItem>
+                                <MenuItem Header="Изменить"
+                                          Command="{Binding UpdateProject}"
+                                          CommandParameter="{Binding ElementName=ListProject, Path=SelectedItem}"></MenuItem>
+                                <MenuItem Header="Удалить" 
+                                          Command="{Binding DeleteProject}" 
+                                          CommandParameter="{Binding ElementName=ListProject, Path=SelectedItem.Id}"></MenuItem>
+                            </ContextMenu>
+                        </ListBox.ContextMenu>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="ServiceView" 
+                     Header="{Binding UIElements[service]}" 
+                     Width="auto" 
+                     Height="25"
+                     Padding="0,0,0,0">
+                <Grid Background="#FFE5E5E5" Margin="0,12,0,-13">
+
+                    <Grid.Resources>
+                        <conv:Converter x:Key="Convertor"/>
+                    </Grid.Resources>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox x:Name="ServiceList" ItemsSource="{Binding ServiceClients}" HorizontalAlignment="Left">
+                        <ListBox.ContextMenu>
+                            <ContextMenu Name="MenuForServiceList" Visibility="{Binding ClientView.ServiceVisibilityContextMenu}">
+                                <MenuItem x:Name="AddService" 
+                                          Header="Добавить"
+                                          Command="{Binding ServiceUpdateView}" 
+                                          Click="AddService_Click">
+                                </MenuItem>
+                                <MenuItem x:Name="ServiceUpdate"
+                                          Header="Изменить"
+                                          Command="{Binding ServiceUpdateView}" 
+                                          CommandParameter="{Binding ElementName=ServiceList, Path=SelectedItem.Id}"
+                                          Click="ServiceUpdate_Click">
+                                </MenuItem>
+                                <MenuItem x:Name="EditService" 
+                                          Header="Удалить" 
+                                          Command="{Binding ServiceDelete}"
+                                          CommandParameter="{Binding ElementName=ServiceList, Path=SelectedItem.Id}">
+                                </MenuItem>
+                            </ContextMenu>
+                        </ListBox.ContextMenu>
+
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Expander Header="{Binding Header}" Width="900" FontWeight="Bold">
+                                        <StackPanel>
+                                            <TextBlock Margin="25, 0, 0, 0"
+                                                       FontSize="14"
+                                                       Text="{Binding Description}"
+                                                       FontWeight="Normal"
+                                                       TextWrapping="Wrap">
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </Expander>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <Border x:Name="ServiceUpdateView" 
+                            Grid.Column="1" 
+                            Width="auto" 
+                            Height="0" 
+                            CornerRadius="10" 
+                            BorderBrush="Black" 
+                            BorderThickness="2" 
+                            VerticalAlignment="Top" 
+                            Margin="10,10,10,0">
+                        <StackPanel Grid.Column="1" 
+                                    Width="921" 
+                                    Height="600" 
+                                    Margin="0,10,0,0" 
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Top">
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="SaveService" 
+                                        Content="Сохранить"
+                                        Margin="10,0,0,0"
+                                        Click="SaveService_Click" 
+                                        Cursor="Hand">
+                                </Button>
+                                <Button x:Name="ButtonCancel" 
+                                        Content="Прервать" 
+                                        Click="ButtonCancel_Click" 
+                                        Cursor="Hand"
+                                        Command="{Binding ServiceViewClose}"
+                                        Visibility="{Binding ClientView.ServiceVisibilityButtonCancel}"
+                                        Margin="10,0,0,0">
+                                </Button>
+                            </StackPanel>
+
+                            <StackPanel>
+                                <TextBox x:Name="ServiceHeader" 
+                                     TextWrapping="Wrap" 
+                                     Text="{Binding ClientView.ServiceHeader}" 
+                                     Width="auto" 
+                                     Margin="10,10,10,0" 
+                                     FontSize="16"
+                                     materialDesign:HintAssist.Hint="Заголовок" Cursor="Arrow"/>
+                                <TextBox x:Name="ServiceDescription" 
+                                     TextWrapping="Wrap" 
+                                     Text="{Binding ClientView.ServiceDescription}" 
+                                     Width="auto"
+                                     Height="450"
+                                     Margin="10,10,10,0" 
+                                     FontSize="16"
+                                     materialDesign:HintAssist.Hint="Описание" 
+                                     Cursor="Arrow"/>
+                                <Label x:Name="ServiceErrorView"
+                                       Content="{Binding ClientView.ServiceError}" 
+                                       FontSize="16" 
+                                       Margin="10,10,10,0"
+                                       Foreground="Red">
+                                </Label>
+                                <TextBox x:Name="ServiceId" 
+                                     TextWrapping="Wrap" 
+                                     Text="{Binding ClientView.ServiceId}" 
+                                     Width="auto" 
+                                     Margin="0,10,0,0" 
+                                     FontSize="16"
+                                     Cursor="Arrow"
+                                     Visibility="Hidden"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <TabItem Header="{Binding UIElements[blog]}" 
+                     Width="auto" 
+                     Height="25" 
+                     Padding="0,0,0,0">
+                <Grid Background="#FFE5E5E5">
+
+                    <Grid.Resources>
+                        <conv:Converter x:Key="Convertor"/>
+                    </Grid.Resources>
+
+                    <ListBox x:Name="ListBlogs" 
+                             ItemsSource="{Binding BlogClients}">
+
+
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Label Content="{Binding Date}" 
+                                           HorizontalAlignment="Left" 
+                                           Margin="10,10,0,0" 
+                                           VerticalAlignment="Top"
+                                           FontSize="16"
+                                           Foreground="Gray"/>
+                                    <Image HorizontalAlignment="Left" 
+                                           Height="235" 
+                                           Margin="10,0,0,0" 
+                                           VerticalAlignment="Top"
+                                           Width="400" 
+                                           Source="{Binding Image}"/>
+                                    <TextBlock HorizontalAlignment="Left" 
+                                               Margin="10,10,0,0" 
+                                               TextWrapping="Wrap" 
+                                               Text="{Binding Header}" 
+                                               VerticalAlignment="Top" 
+                                               FontSize="20" 
+                                               FontWeight="Bold" 
+                                               Width="400" 
+                                               Height="75"
+                                               TextAlignment="Center"/>
+                                    <TextBlock HorizontalAlignment="Left" 
+                                               Margin="10,10,0,0" 
+                                               TextWrapping="Wrap" 
+                                               Text="{Binding ShortDescription}" 
+                                               VerticalAlignment="Top" 
+                                               FontSize="16" 
+                                               Width="400" 
+                                               Height="175" 
+                                               TextAlignment="Justify"/>
+                                    <StackPanel.InputBindings>
+                                        <MouseBinding MouseAction="LeftDoubleClick"
+                                                      Command="{Binding DataContext.ViewBlog, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBox}}, Mode=OneWay}"
+                                                      CommandParameter="{Binding ElementName=ListBlogs, Path=SelectedItem}">
+                                        </MouseBinding>
+                                    </StackPanel.InputBindings>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+
+                        <ListBox.ContextMenu>
+                            <ContextMenu Name="ContextForListBlogs" Visibility="{Binding ClientView.BlogVisibilityContextMenu}">
+                                <MenuItem Header="Добавить" 
+                                          Command="{Binding AddBlog}">
+                                </MenuItem>
+                                <MenuItem Header="Изменить" 
+                                          Command="{Binding UpdateBlog}" 
+                                          CommandParameter="{Binding ElementName=ListBlogs, Path=SelectedItem}"></MenuItem>
+                                <MenuItem Header="Удалить" 
+                                          Command="{Binding DeleteBlog}" 
+                                          CommandParameter="{Binding ElementName=ListBlogs, Path=SelectedItem.Id}"></MenuItem>
+                            </ContextMenu>
+                        </ListBox.ContextMenu>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="{Binding UIElements[contact]}" Width="auto" Height="25" Padding="0,0,0,0">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.Resources>
+                        <conv:Converter x:Key="Convertor"/>
+                    </Grid.Resources>
+
+                    <StackPanel Width="400px"
+                                Height="900px">
+                        <StackPanel>
+                            <Label Content="{Binding UIElements[contact-address]}"
+                                   FontSize="24px"
+                                   HorizontalContentAlignment="Center"
+                                   FontWeight="Bold">
+                            </Label>
+                            <ListBox x:Name="ContactList" ItemsSource="{Binding ContactClientsAddress}">
+                                <ListBox.ContextMenu>
+                                    <ContextMenu Name="MenuForContactList1" Visibility="{Binding ClientView.ContactVisibilityContextMenu}">
+                                        <MenuItem x:Name="AddContact" 
+                                          Header="Добавить"
+                                          Command="{Binding AddContact}">
+                                        </MenuItem>
+                                        <MenuItem x:Name="ContactUpdate"
+                                          Header="Изменить"
+                                          Command="{Binding UpdateContact}" 
+                                          CommandParameter="{Binding ElementName=ContactList, Path=SelectedItem}">
+                                        </MenuItem>
+                                    </ContextMenu>
+                                </ListBox.ContextMenu>
+
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Header}"
+                                                       FontSize="20px">
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+
+                        <StackPanel>
+                            <Label Content="{Binding UIElements[contact-tel]}"
+                                   FontSize="24px"
+                                   HorizontalContentAlignment="Center"
+                                   FontWeight="Bold">
+                            </Label>
+                            <ListBox x:Name="ContactList2" ItemsSource="{Binding ContactClientsTel}">
+                                <ListBox.ContextMenu>
+                                    <ContextMenu Name="MenuForContactList2" Visibility="{Binding ClientView.ContactVisibilityContextMenu}">
+                                        <MenuItem x:Name="AddContact2" 
+                                          Header="Добавить"
+                                          Command="{Binding AddContact}">
+                                        </MenuItem>
+                                        <MenuItem x:Name="ContactUpdate2"
+                                          Header="Изменить"
+                                          Command="{Binding UpdateContact}" 
+                                          CommandParameter="{Binding ElementName=ContactList2, Path=SelectedItem}">
+                                        </MenuItem>
+                                    </ContextMenu>
+                                </ListBox.ContextMenu>
+
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Header}"
+                                                       FontSize="20px">
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="{Binding UIElements[contact-email]}"
+                                   FontSize="24px"
+                                   HorizontalContentAlignment="Center"
+                                   FontWeight="Bold">
+                            </Label>
+                            <ListBox x:Name="ContactList3" ItemsSource="{Binding ContactClientsEmail}">
+                                <ListBox.ContextMenu>
+                                    <ContextMenu Name="MenuForContactList3" Visibility="{Binding ClientView.ContactVisibilityContextMenu}">
+                                        <MenuItem x:Name="AddContact3" 
+                                          Header="Добавить"
+                                          Command="{Binding AddContact}">
+                                        </MenuItem>
+                                        <MenuItem x:Name="ContactUpdate3"
+                                          Header="Изменить"
+                                          Command="{Binding UpdateContact}" 
+                                          CommandParameter="{Binding ElementName=ContactList3, Path=SelectedItem}">
+                                        </MenuItem>
+                                    </ContextMenu>
+                                </ListBox.ContextMenu>
+
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Header}"
+                                                       FontSize="20px">
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Border Width="500px"
+                            Height="310px"
+                            CornerRadius="10" 
+                            BorderBrush="Black" 
+                            BorderThickness="3"
+                            Background="#FFE2C0C0"
+                            Visibility="{Binding ClientView.ContactVisibilityCreateMenu}">
+                        <StackPanel>
+                            <Button x:Name="BtnClose" 
+                                    Margin="0,5,5,0"
+                                    HorizontalAlignment="Right"
+                                    Padding="0,0,0,0"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    Cursor="Hand" 
+                                    Command="{Binding CreateContactClose}">
+                                <materialDesign:PackIcon Kind="Close" 
+                                                         Width="32" 
+                                                         Height="32" 
+                                                         Foreground="Black">
+                                </materialDesign:PackIcon>
+                            </Button>
+
+                            <Label Content="{Binding ClientView.ContactCreateHeader}"
+                                   HorizontalContentAlignment="Center"
+                                   FontSize="24px"
+                                   FontWeight="Bold"
+                                   Margin="0,10px">
+                            </Label>
+                            <Label Name="ContactIdLabel"
+                                   Content="{Binding ClientView.ContactId}"
+                                   Visibility="Collapsed">
+                            </Label>
+                            <Label Name="ContactTag"
+                                   Content="{Binding ClientView.ContactTag}"
+                                   Visibility="Collapsed">
+                            </Label>
+                            <TextBox Name="ContactHeader"
+                                     Text="{Binding ClientView.ContactHeader}"
+                                     Width="400px"
+                                     TextAlignment="Center"
+                                     FontSize="20px"
+                                     materialDesign:HintAssist.Hint="Заголовок"
+                                     Margin="0,10px">
+                            </TextBox>
+                            <TextBox Name="ContactValue"
+                                     Text="{Binding ClientView.ContactValue}"
+                                     Width="400px"
+                                     TextAlignment="Center"
+                                     FontSize="20px"
+                                     materialDesign:HintAssist.Hint="Описание"
+                                     Margin="0,10px">
+                            </TextBox>
+                            <Label Content="{Binding ClientView.ContactError}"
+                                   Foreground="Red"
+                                   FontSize="20px"
+                                   HorizontalContentAlignment="Center">
+                            </Label>
+                            <Button Content="Сохранить"
+                                    Width="100px"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    Command="{Binding SaveContact}" Cursor="Hand">
+                                <Button.CommandParameter>
+                                    <MultiBinding Converter="{StaticResource Convertor}">
+                                        <Binding ElementName="ContactIdLabel" Path="Content"/>
+                                        <Binding ElementName="ContactHeader" Path="Text"/>
+                                        <Binding ElementName="ContactValue" Path="Text"/>
+                                    </MultiBinding>
+                                </Button.CommandParameter>
+                            </Button>
+                            <Button Content="Удалить"
+                                    Visibility="{Binding ClientView.ContactVisibilityButtonDelete}"
+                                    Width="100px"
+                                    Command="{Binding DeleteContact}"
+                                    CommandParameter="{Binding ElementName=ContactIdLabel, Path=Content}"
+                                    Style="{StaticResource MaterialDesignFlatButton}" Cursor="Hand">
+                            </Button>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <StackPanel Background="Gray" 
+                    Opacity="0.75"
+                    Visibility="{Binding ClientView.GlobalErrorVisibility}">
+        </StackPanel>
+        <StackPanel Width="800" 
+                    Height="450"
+                    Background="LightGray"
+                    Visibility="{Binding ClientView.GlobalErrorVisibility}">
+            <Button x:Name="CloseViewError"
+                    HorizontalAlignment="Right"
+                    Padding="0,0,0,0"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Command="{Binding CloseViewGlogalError}"
+                    Cursor="Hand">
+                <materialDesign:PackIcon Kind="CloseThick" 
+                                         Width="32" 
+                                         Height="32" 
+                                         Foreground="Black">
+                </materialDesign:PackIcon>
+            </Button>
+            <TextBlock Text="{Binding ClientView.GlobalError}" 
+                       TextAlignment="Center"
+                       Height="250"
+                       FontSize="24"
+                       HorizontalAlignment="Center"
+                       Foreground="Red"
+                       Margin="0,100,0,0"
+                       TextWrapping="Wrap"/>
+            <Button Content="Повторить"
+                    FontSize="20"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Visibility="{Binding ClientView.GlobalErrorVisibility}"
+                    Padding="5,0,5,3"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Margin="0,25,10,0"
+                    Command="{Binding RepeatRequest}" 
+                    Cursor="Hand">
+            </Button>
+        </StackPanel>
+
+        <Grid x:Name="Settings" 
+              Width="500"
+              Background="#FFF7F0FF"
+              Margin="-470,0,0,0"
+              HorizontalAlignment="Left">
+
+            <Grid.Resources>
+                <conv:Converter x:Key="Convertor"/>
+            </Grid.Resources>
+
+            <Button x:Name="ArrowButton" 
+                    Visibility="Visible"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Padding="0,0,0,0"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Cursor="Hand" 
+                    Height="64"
+                    Width="32"
+                    Click="ArrowButton_Click">
+                <materialDesign:PackIcon x:Name="Arrow" 
+                                         Kind="ChevronRight" 
+                                         Width="64" 
+                                         Height="64" 
+                                         VerticalAlignment="Center"
+                                         HorizontalAlignment="Center"
+                                         Foreground="Black">
+                </materialDesign:PackIcon>
+            </Button>
+
+            <StackPanel Width="440" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="AbortRegistration" 
+                            Height="35"
+                            Width="auto"
+                            Padding="0,0,0,0"
+                            Style="{StaticResource MaterialDesignFlatButton}"
+                            Visibility="{Binding ClientView.LoginAbortRegistrationVisibility}"
+                            Command="{Binding AbortRegistration}" 
+                            Cursor="Hand">
+                        <materialDesign:PackIcon Kind="ArrowLeftThick" 
+                                                 Width="32" 
+                                                 Height="32" 
+                                                 Foreground="Black"/>
+                    </Button>
+
+                    <Label Content="{Binding ClientView.LoginAuthorizationContent}" 
+                           Visibility="{Binding ClientView.LoginAuthorizationVisibility}"
+                           FontSize="20"
+                           FontWeight="Bold"/>
+
+                    <Label Content="{Binding ClientView.LoginUserName}"
+                           VerticalAlignment="Top" 
+                           FontSize="20"/>
+                </StackPanel>
+
+                <TextBox x:Name="Login"
+                         Text="{Binding ClientView.LoginUserLogin}"
+                         TextWrapping="Wrap"
+                         Margin="0,10,0,0"
+                         FontSize="16"
+                         materialDesign:HintAssist.Hint="Логин" 
+                         Cursor="Arrow"
+                         Style="{StaticResource  MaterialDesignFloatingHintTextBox}"
+                         Visibility="{Binding ClientView.LoginLoginVisibility}"/>
+
+                <PasswordBox x:Name="PasswordUser"
+                             FontSize="16"
+                             materialDesign:HintAssist.Hint="Пароль"
+                             Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                             Visibility="{Binding ClientView.LoginLoginVisibility}"
+                             Cursor="Arrow"/>
+
+                <PasswordBox x:Name="PasswordRepeat"
+                             FontSize="16"
+                             materialDesign:HintAssist.Hint="Повторите пароль"
+                             Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                             Visibility="{Binding ClientView.LoginEmailVisibility}" 
+                             Cursor="Arrow"/>
+
+                <TextBox x:Name="Email" 
+                        TextWrapping="Wrap"
+                        Text="{Binding ClientView.LoginUserEmail}"
+                        FontSize="16"
+                        materialDesign:HintAssist.Hint="Email" 
+                        Cursor="Arrow"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Visibility="{Binding ClientView.LoginEmailVisibility}"/>
+
+                <Label Content="{Binding ClientView.LoginErrorContent}"
+                       FontSize="16" 
+                       Margin="0,10,0,0"
+                       VerticalAlignment="Top" 
+                       Foreground="Red"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                    <Button x:Name="LoginButton" 
+                            Content="Войти" 
+                            Style="{StaticResource MaterialDesignFlatButton}"
+                            Cursor="Hand"
+                            Command="{Binding Login}"
+                            Visibility="{Binding ClientView.LoginEnterButtonVisibility}" 
+                            IsVisibleChanged="LoginButton_IsVisibleChanged">
+                        <Button.CommandParameter>
+                            <MultiBinding Converter="{StaticResource Convertor}">
+                                <Binding ElementName="Login" Path="Text"/>
+                                <Binding ElementName="PasswordUser"/>
+                            </MultiBinding>
+                        </Button.CommandParameter>
+                    </Button>
+
+                    <Button Content="Регистрация" 
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Cursor="Hand"
+                        Command="{Binding RegistrationView}"
+                        Visibility="{Binding ClientView.LoginRegistrationButtonVisibility}">
+                    </Button>
+
+                    <Button Content="Зарегистрироваться" 
+                            Style="{StaticResource MaterialDesignFlatButton}"
+                            Cursor="Hand"
+                            Command="{Binding Registration}"
+                            Visibility="{Binding ClientView.LoginRegistrationVisibility}">
+                        <Button.CommandParameter>
+                            <MultiBinding Converter="{StaticResource Convertor}">
+                                <Binding ElementName="Login" Path="Text"/>
+                                <Binding ElementName="PasswordUser"/>
+                                <Binding ElementName="PasswordRepeat"/>
+                                <Binding ElementName="Email" Path="Text"/>
+                            </MultiBinding>
+                        </Button.CommandParameter>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+
+            <StackPanel VerticalAlignment="Bottom" 
+                        HorizontalAlignment="Right"
+                        Margin="0,0,50,10">
+                <Button x:Name="Save"
+                        Content="Сохранить"
+                        HorizontalAlignment="Right"
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Command="{Binding SaveMainUrl}"
+                        CommandParameter="{Binding ElementName=MainUrl, Path=Text}"
+                        Cursor="Hand"/>
+                <Button x:Name="Exit"
+                        Content="Выйти"
+                        HorizontalAlignment="Right"
+                        Visibility="{Binding ClientView.LoginExitVisibility}"
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Command="{Binding Logout}"
+                        Cursor="Hand"
+                        Click="Exit_Click"/>
+            </StackPanel>
+            <TextBox x:Name="MainUrl" 
+                     TextWrapping="Wrap"
+                     Text="{Binding ClientView.LoginServer}" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     materialDesign:HintAssist.Hint="Сервер и порт"
+                     FontSize="16"
+                     HorizontalAlignment="Center" 
+                     Margin="0,880,0,0"  
+                     VerticalAlignment="Top" 
+                     Width="480"
+                     Cursor="Arrow"/>
+        </Grid>
+    </Grid>
+</Window>

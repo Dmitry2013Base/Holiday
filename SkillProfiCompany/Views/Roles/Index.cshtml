@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="~/Styles/bootstrap-grid.min.css">
+<link rel="stylesheet" href="~/Styles/UserListStyle.css">
+
+@model (List<IdentityRole>, List<User>)
+
+<div class="role none">
+    <div id="close">
+        <svg viewBox="0 0 32 32"><path d="M4,29a1,1,0,0,1-.71-.29,1,1,0,0,1,0-1.42l24-24a1,1,0,1,1,1.42,1.42l-24,24A1,1,0,0,1,4,29Z" /><path d="M28,29a1,1,0,0,1-.71-.29l-24-24A1,1,0,0,1,4.71,3.29l24,24a1,1,0,0,1,0,1.42A1,1,0,0,1,28,29Z" /></svg>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 user flex">
+                <h3 id="user-name"></h3>
+                <div class="user-roles">
+                    <ul class="flex checkbox">
+                        @for (int i = 0; i < Model.Item1.Count; i++)
+                        {
+                            <li class="list-roles">
+                                <label class="list-item-2">
+                                    <input type="checkbox" id="check-@i" name="scales">
+                                        @Model.Item1[i].Name
+                                    <span for="check-@i"></span>
+                                </label>
+                            </li>
+                        }
+                    </ul>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id ="control-page" class="container ui-section">
+    <section class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 user flex">
+            <h3 id="control-list-user">Список пользователей</h3>
+            <ol class="user-list">
+                @for (int i = 0; i < Model.Item2.Count; i++)
+                {
+                    <li class="list-item">
+                        <div class="flex">
+                            <label class="user-name">@Model.Item2[i].UserName</label>
+                            <label class="id" hidden>@Model.Item2[i].Id</label>
+                            <button class="item-btn view-role">Права доступа</button>
+                        <button class="item-btn del">Удалить</button>
+                        </div>
+                    </li>
+                }
+            </ol>
+            
+            <div class="list-view">
+                <button class="list-view-btn" onclick="Show()">Показать больше</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 user flex">
+            <h3 id="control-create-role">Создать роль</h3>
+
+            <form action="~/Roles/Create" class="create-role" method="post">
+                <input type="text" name="roleName" placeholder="Название" minlength="5">
+                <input type="submit" class="list-view-btn btn-margin" value="Создать">
+            </form>
+        </div>
+    </section>
+</div>
+
+<script src="~/Scripts/Roles.js"></script>
